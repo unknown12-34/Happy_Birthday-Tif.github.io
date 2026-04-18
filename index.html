@@ -111,15 +111,17 @@
   </div>
 <h2 id="typing"></h2>
               <script>
-                const text = `🎉 Happy Birthday 🎂, Hope you can get into UM and become a professional doctor in the future!! 
-                   and have chances to travel all around the world especially Japan! to enjoy their cherry blossom tree
-                    buy a lot of strawberry and chocolate
-                    pet a very very super cute otter 
-                   Hope u have a great day today ❤️ NO STRESS YAAA!!! 
-                  and don't always just think about others, think for yourselff too`;
+                const text = `🎉 Happy Birthday 🎂,
+                hope you can get into UM and become a professional doctor in the future!!
+                And have the chance to travel all around the world, especially to Japan, to enjoy the cherry blossoms 🌸
+                Buy lots of strawberries and chocolate 🍓🍫
+                And pet a super, super cute otter 🦦
+                Hope you have a great day today ❤️ NO STRESS YAAA!!!
+                And don’t always think about others—remember to think about yourself too 😊
+                `;
 
   let i = 0;
-  const speed = 40; // typing speed (lower = faster)
+  const speed = 50; // typing speed (lower = faster)
 
   function typeEffect() {
     if (i < text.length) {
@@ -131,7 +133,24 @@
   }
 
   typeEffect();
-</script> ####################################################
+</script>
+     <script>
+                const text = `because you are important........ `;
+
+  let i = 0;
+  const speed = 30; // typing speed (lower = faster)
+
+  function typeEffect() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML += text.charAt(i)
+        .replace(/\n/g, "<br>"); // keeps line breaks
+      i++;
+      setTimeout(typeEffect, speed);
+    }
+  }
+
+  typeEffect();
+</script> 
   <script>
     function showMemories() {
       // show gallery with fade-in
