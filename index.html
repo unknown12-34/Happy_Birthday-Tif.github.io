@@ -95,14 +95,6 @@
 
   <h1>🎉 HAPPY BIRTHDAY!!🎂</h1>
   <div id="main">
-
-  <div class="gallery" id="gallery">
-    <img src="1.jpeg">
-    <img src="2.jpeg">
-    <img src="otter_birthday.jpg">
-    <img src="img4.jpg">
-  </div>
-
   <div class="footer">
     <p>Today is your great day! 💖</p>
   </div>
@@ -118,7 +110,7 @@
                 `;
 
   let i = 0;
-  const speed = 50; // typing speed (lower = faster)
+  const speed = 60; // typing speed (lower = faster)
 
   function typeEffect() {
     if (i < text.length) {
@@ -149,8 +141,15 @@
   typeEffect();
 </script> 
   <button class="btn" onclick="showMemories()">
-    Open the Memory
+    Tap Me
   </button>
+    
+  <div class="gallery" id="gallery">
+    <img src="1.jpeg">
+    <img src="2.jpeg">
+    <img src="otter_birthday.jpg">
+    <img src="img4.jpg">
+  </div>
   <script>
     function showMemories() {
       // show gallery with fade-in
