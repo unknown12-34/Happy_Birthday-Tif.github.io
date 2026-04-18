@@ -121,7 +121,27 @@
   <div class="footer">
     <p>Thanks for all the memories we shared 💖</p>
   </div>
+<h2 id="typing"></h2>
+              <script>
+                const text = `🎉 Happy Birthday 🎂I just wanted to take a moment to tell you how much you mean to me.
+                Even though this month may not have been the happiest,today is YOUR day, and you deserve all the happiness in the world.
+                Thank you for all the memories, the laughter, and the moments we've shared.
+                I hope this little website brings a smile to your face 💖`;
 
+  let i = 0;
+  const speed = 40; // typing speed (lower = faster)
+
+  function typeEffect() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML += text.charAt(i)
+        .replace(/\n/g, "<br>"); // keeps line breaks
+      i++;
+      setTimeout(typeEffect, speed);
+    }
+  }
+
+  typeEffect();
+</script> ####################################################
   <script>
     function showMemories() {
       // show gallery with fade-in
