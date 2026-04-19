@@ -2,21 +2,19 @@
 <html>  
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HAPPY BIRTHDAY TIFF</title>
+  <title>HAPPY BIRTHDAY TIFF</title>
 
-  
-    <style>
+  <style>
     p {
-  font-size: 25px;
-}
+      font-size: 25px;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       color: grey;
-
       background: linear-gradient(rgba(255,192,203,0.3), rgba(255,192,203,0.3)),
                   url("aceflux-flag-light pink-color.png") no-repeat center center/cover;
-
       min-height: 100vh;
       text-align: center;
       padding: 20px;
@@ -28,6 +26,18 @@
       margin-top: 20px;
     }
 
+    /* IMPORTANT FIX: remove default spacing issues */
+    h2 {
+      margin: 0;
+      font-weight: normal;
+    }
+
+    #typing {
+      white-space: pre-line;
+      margin-top: 20px;
+      min-height: 200px;
+    }
+
     .btn {
       padding: 12px 25px;
       font-size: 18px;
@@ -36,18 +46,15 @@
       cursor: pointer;
       background: white;
       color: black;
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
-    /* GALLERY */
     .gallery {
       display: none;
       margin-top: 30px;
       flex-wrap: wrap;
       gap: 15px;
       justify-content: center;
-
-      /* fade-in setup */
       opacity: 0;
       transform: translateY(20px);
       transition: all 1s ease;
@@ -71,44 +78,53 @@
       opacity: 0.9;
     }
 
-    @media (min-width: 768px) {
-      h1 { font-size: 40px; }
-    }
-
-    /* CONFETTI */
-    .confetti {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      background: red;
-      top: -10px;
-      animation: fall 3s linear forwards;
-      z-index: 9999;
-    }
-
     @keyframes fall {
       to {
         transform: translateY(100vh) rotate(360deg);
         opacity: 0;
       }
     }
-   </style>
- </head>
 
-  
-  <body>
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      top: -10px;
+      animation: fall 3s linear forwards;
+      z-index: 9999;
+    }
 
-    <h1>🎉 HAPPY BIRTHDAY TIF !!🎂</h1>
-     <div id="main">
-    <div class="footer">
-    
-         <p>Today is your great day! 💖</p>
-          <p>Be ready to read this long long message </p>
-       </div>
-       
-  <h2 id="typing">      
-        <script>
-            const text = `🎉 Happy Birthday 🎂,
+    .fade1, .fade2, .fade3, .fade4, .fade5 {
+      opacity: 0;
+      animation: fadeIn 2.5s ease forwards;
+    }
+
+    .fade1 { animation-delay: 50s; }
+    .fade2 { animation-delay: 43150s; }
+    .fade3 { animation-delay: 43200s; }
+    .fade4 { animation-delay: 1800s; }
+    .fade5 { animation-delay: 65s; }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>🎉 HAPPY BIRTHDAY TIF !!🎂</h1>
+
+  <div class="footer">
+    <p>Today is your great day! 💖</p>
+    <p>Be ready to read this long long message </p>
+  </div>
+
+  <!-- FIX: typing container is now clean (no h2/script mix) -->
+  <div id="typing"></div>
+
+  <script>
+    const text = `🎉 Happy Birthday 🎂,
                 hope you can get into UM and become a professional doctor in the future!!
                 Have the chance to travel all around the world, especially to Japan, to enjoy the cherry blossoms 🌸
                 Buy lots of strawberries and chocolate 🍓🍫
@@ -116,85 +132,42 @@
                 Hope you have a great day today ❤️ NO STRESS YAAA!!!
                 `;
 
-  let i = 0;
-   const speed =  50; // typing speed (lower = faster)
+    let i = 0;
+    const speed = 50;
 
-  function typeEffect() {
-    if (i < text.length) {
-      document.getElementById("typing").innerHTML += text.charAt(i)
-        .replace(/\n/g, "<br>"); // keeps line breaks
-      i++;
-      setTimeout(typeEffect, speed);
+    function typeEffect() {
+      if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i).replace(/\n/g, "<br>");
+        i++;
+        setTimeout(typeEffect, speed);
+      }
     }
-  }
 
-  typeEffect();
-</script>
-<style>
-.fade1 {
-  opacity: 0;
-  animation: fadeIn 2.5s ease forwards;
-  animation-delay: 50s;
-}
-  .fade2 {
-  opacity: 0;
-  animation: fadeIn 1.5s ease forwards;
-  animation-delay: 43150s;
-}
-  .fade3 {
-  opacity: 0;
-  animation: fadeIn 1.5s ease forwards;
-  animation-delay: 43200s;
-}
+    typeEffect();
+  </script>
 
-    .fade4 {
-  opacity: 0;
-  animation: fadeIn 1.5s ease forwards;
-  animation-delay: 1800s;
-}
-    .fade5 {
-  opacity: 0;
-  animation: fadeIn 1.5s ease forwards;
-  animation-delay: 65s;
-}
-  
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
-}
-</style>
-<p class="fade1"> And don’t always think about others only—remember to think about yourself too 😊</p>
-<p class="fade1"> DRINK more water, if too cold at night make your aircon warmer first hahaah then adjust it back when you going to sleep,BYE BYE TO SICKNESS</p>
-<p class="fade1"> Hope you like the gift, cause its abit too simple :< </p>
-    <p class="fade4"> Ouh and Hi to everyone who ever saw this </p>
-    <p class="fade5">                                                                - by BJJ</p>
-    <p class="fade2"> because you are important.............. </p>
-<p class="fade3"> I know its not now.... but I love you...</p>
+  <p class="fade1"> And don’t always think about others only—remember to think about yourself too 😊</p>
+  <p class="fade1"> DRINK more water, if too cold at night make your aircon warmer first hahaah then adjust it back when you going to sleep,BYE BYE TO SICKNESS</p>
+  <p class="fade1"> Hope you like the gift, cause its abit too simple :< </p>
+  <p class="fade4"> Ouh and Hi to everyone who ever saw this </p>
+  <p class="fade5"> - by BJJ</p>
+  <p class="fade2"> because you are important.............. </p>
+  <p class="fade3"> I know its not now.... but I love you...</p>
 
+  <!-- FIX: button is now properly BELOW typed text -->
+  <button class="btn" onclick="showMemories()">Tap Me</button>
 
-
-    
-  <button class="btn" onclick="showMemories()">
-    Tap Me
-  </button>
-    
   <div class="gallery" id="gallery">
-    
     <img src="1.jpeg">
     <img src="2.jpeg">
     <img src="otter_birthday.jpg">
-    <img src="family.jpeg"><p>: Animal family</p>
-  
-   
-     </h2>
+    <img src="family.jpeg">
+    <p>: Animal family</p>
+  </div>
+
   <script>
     function showMemories() {
-      // show gallery with fade-in
-      const gallery = document.getElementById("gallery");
-      gallery.classList.add("show");
-
-      // trigger confetti
+      document.getElementById("gallery").classList.add("show");
       createConfetti();
     }
 
@@ -209,9 +182,7 @@
 
         document.body.appendChild(confetti);
 
-        setTimeout(() => {
-          confetti.remove();
-        }, 3000);
+        setTimeout(() => confetti.remove(), 3000);
       }
     }
 
@@ -221,19 +192,16 @@
     }
   </script>
 
-  
-
   <script>
-fetch('https://api.countapi.xyz/hit/tif-birthday-site-2026/visits')
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById('counter').innerText = data.value;
-  })
-  .catch(() => {
-    document.getElementById('counter').innerText = "error";
-  });
-</script>
-</body>
+    fetch('https://api.countapi.xyz/hit/tif-birthday-site-2026/visits')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('counter').innerText = data.value;
+      })
+      .catch(() => {
+        document.getElementById('counter').innerText = "error";
+      });
+  </script>
 
-   
-   </html>
+</body>
+</html>
