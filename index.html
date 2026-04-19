@@ -221,10 +221,17 @@
   </script>
 
   
-<p style="font-size:10px; opacity:0.2; position:fixed; bottom:5px; right:10px;">
-<span id="counter"></span>
-</p>
-  
+
+  <script>
+fetch('https://api.countapi.xyz/hit/tif-birthday-site-2026/visits')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('counter').innerText = data.value;
+  })
+  .catch(() => {
+    document.getElementById('counter').innerText = "error";
+  });
+</script>
 </body>
 
    
