@@ -116,7 +116,7 @@
                 `;
 
   let i = 0;
-  const speed =  20; // typing speed (lower = faster)
+  const speed =  40; // typing speed (lower = faster)
 
   function typeEffect() {
     if (i < text.length) {
@@ -225,16 +225,4 @@
 <p style="font-size:10px; opacity:0.2;">
   <img src="https://hitwebcounter.com/counter/counter.php?page=987654321&style=0006&nbdigits=5&type=page&initCount=0">
 </p>
-<p>Visitors: <span id="counter">Loading...</span></p>
-
-<script>
-fetch('https://api.countapi.xyz/hit/https://unknown12-34.github.io/unknown12-34.github.io-birthday-surprise-for-tif-//visits')
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById('counter').innerText = data.value;
-  })
-  .catch(() => {
-    document.getElementById('counter').innerText = "Unavailable";
-  });
-</script>
 </html>
