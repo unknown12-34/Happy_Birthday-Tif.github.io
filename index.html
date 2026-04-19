@@ -8,7 +8,6 @@
 
   <style>
     /* ===== GLOBAL STYLING ===== */
-    
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -79,4 +78,120 @@
     @keyframes fadeIn {
       to { opacity: 1; }
     }
+
+    /* ===== CONFETTI ===== */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      top: -10px;
+      animation: fall 3s linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* ===== COUNTER (hidden corner) ===== */
+    .counter {
+      position: fixed;
+      bottom: 5px;
+      right: 10px;
+      font-size: 10px;
+      opacity: 0.3;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== TITLE ===== -->
+  <h1>🎉 HAPPY BIRTHDAY TIF 🎂</h1>
+
+  <!-- ===== INTRO TEXT ===== -->
+  <p>Today is your great day! 💖</p>
+  <p>Be ready to read this long long message</p>
+
+  <!-- ===== TYPING EFFECT ===== -->
+  <h2 id="typing"></h2>
+
+  <!-- ===== EXTRA MESSAGES ===== -->
+  <p class="fade" style="animation-delay:5s;">Remember to take care of yourself 😊</p>
+  <p class="fade" style="animation-delay:7s;">Drink more water 💧</p>
+  <p class="fade" style="animation-delay:9s;">Hope you like the gift 🎁</p>
+
+  <!-- ===== BUTTON ===== -->
+  <button class="btn" onclick="showMemories()">Tap Me</button>
+
+  <!-- ===== IMAGE GALLERY ===== -->
+  <div class="gallery" id="gallery">
+    <img src="1.jpeg">
+    <img src="2.jpeg">
+    <img src="otter_birthday.jpg">
+    <img src="family.jpeg">
+  </div>
+
+  <!-- ===== VISITOR COUNTER ===== -->
+  <div class="counter">
+    👀 <span id="counter">...</span>
+  </div>
+
+  <script>
+    /* ===== TYPING EFFECT FUNCTION ===== */
+    const text = `Happy Birthday 🎂\nHope you achieve your dreams ✨\nTravel the world 🌍\nAnd stay happy always ❤️`;
+
+    let i = 0;
+    function typeEffect() {
+      if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i).replace(/\n/g, "<br>");
+        i++;
+        setTimeout(typeEffect, 40);
+      }
+    }
+    typeEffect();
+
+    /* ===== SHOW GALLERY + CONFETTI ===== */
+    function showMemories() {
+      document.getElementById("gallery").classList.add("show");
+      createConfetti();
+    }
+
+    /* ===== CONFETTI EFFECT ===== */
+    function createConfetti() {
+      for (let i = 0; i < 40; i++) {
+        const c = document.createElement("div");
+        c.classList.add("confetti");
+
+        c.style.left = Math.random() * 100 + "vw";
+        c.style.background = randomColor();
+        c.style.animationDuration = (Math.random() * 2 + 2) + "s";
+
+        document.body.appendChild(c);
+
+        setTimeout(() => c.remove(), 3000);
+      }
+    }
+
+    function randomColor() {
+      const colors = ["#ff4d6d", "#ffd166", "#06d6a0", "#4cc9f0"];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    /* ===== VISITOR COUNTER (API) ===== */
+    fetch('https://api.countapi.xyz/hit/tif-birthday-site-2026/visits')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('counter').innerText = data.value;
+      })
+      .catch(() => {
+        document.getElementById('counter').innerText = "error";
+      });
+
+  </script>
+
+</body>
 </html>
