@@ -201,15 +201,18 @@
     }
   </script>
 <script>
-fetch("https://api.countapi.xyz/hit/unknown12-34/tif-birthday")
+fetch("https://api.countapi.xyz/hit/unknown12-34/tifbirthday2026")
   .then(res => res.json())
   .then(data => {
     document.getElementById("visitor-count").innerText = data.value;
   })
-  .catch(() => {
+  .catch(err => {
+    console.log(err);
     document.getElementById("visitor-count").innerText = "Error";
   });
 </script>
 </body>
-  <p>👀 Visitors: <span id="visitor-count">Loading...</span></p>
+
+  <p>👀 Visitors:</p>
+<img src="https://hitwebcounter.com/counter/counter.php?page=369528&style=0006&nbdigits=5&type=page&initCount=0" />
 </html>
