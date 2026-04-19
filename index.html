@@ -7,14 +7,17 @@
   <style>
     p {
       font-size: 25px;
+      margin: 6px 0;
     }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       color: grey;
+
       background: linear-gradient(rgba(255,192,203,0.3), rgba(255,192,203,0.3)),
                   url("aceflux-flag-light pink-color.png") no-repeat center center/cover;
+
       min-height: 100vh;
       text-align: center;
       padding: 20px;
@@ -26,16 +29,14 @@
       margin-top: 20px;
     }
 
-    /* IMPORTANT FIX: remove default spacing issues */
     h2 {
       margin: 0;
-      font-weight: normal;
     }
 
     #typing {
-      white-space: pre-line;
       margin-top: 20px;
-      min-height: 200px;
+      margin-bottom: 10px;
+      white-space: pre-line;
     }
 
     .btn {
@@ -46,7 +47,7 @@
       cursor: pointer;
       background: white;
       color: black;
-      margin-top: 20px;
+      margin-top: 15px;
     }
 
     .gallery {
@@ -55,6 +56,7 @@
       flex-wrap: wrap;
       gap: 15px;
       justify-content: center;
+
       opacity: 0;
       transform: translateY(20px);
       transition: all 1s ease;
@@ -78,13 +80,6 @@
       opacity: 0.9;
     }
 
-    @keyframes fall {
-      to {
-        transform: translateY(100vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
-
     .confetti {
       position: fixed;
       width: 10px;
@@ -93,11 +88,21 @@
       animation: fall 3s linear forwards;
       z-index: 9999;
     }
-<div class="message">
-  ...all your <p class="fadeX"> here...
-</div>
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
     .fade1, .fade2, .fade3, .fade4, .fade5 {
       opacity: 0;
+      margin: 6px 0;
       animation: fadeIn 2.5s ease forwards;
     }
 
@@ -107,9 +112,6 @@
     .fade4 { animation-delay: 1800s; }
     .fade5 { animation-delay: 65s; }
 
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
   </style>
 </head>
 
@@ -122,7 +124,6 @@
     <p>Be ready to read this long long message </p>
   </div>
 
-  <!-- FIX: typing container is now clean (no h2/script mix) -->
   <div id="typing"></div>
 
   <script>
@@ -156,7 +157,6 @@
   <p class="fade2"> because you are important.............. </p>
   <p class="fade3"> I know its not now.... but I love you...</p>
 
-  <!-- FIX: button is now properly BELOW typed text -->
   <button class="btn" onclick="showMemories()">Tap Me</button>
 
   <div class="gallery" id="gallery">
@@ -192,17 +192,6 @@
       const colors = ["#ff4d6d", "#ffd166", "#06d6a0", "#4cc9f0", "#f72585"];
       return colors[Math.floor(Math.random() * colors.length)];
     }
-  </script>
-
-  <script>
-    fetch('https://api.countapi.xyz/hit/tif-birthday-site-2026/visits')
-      .then(res => res.json())
-      .then(data => {
-        document.getElementById('counter').innerText = data.value;
-      })
-      .catch(() => {
-        document.getElementById('counter').innerText = "error";
-      });
   </script>
 
 </body>
